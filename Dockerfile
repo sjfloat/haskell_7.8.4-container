@@ -31,4 +31,4 @@ run . $HOME/.profile && cabal update && cabal install \
     HUnit \
     parsec
 
-cmd $SHELL
+cmd $SHELL -l
