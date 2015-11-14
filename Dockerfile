@@ -19,6 +19,8 @@ run rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 env HOME /home/$USER
 add stack.yaml $HOME/.stack/global/stack.yaml
 add haskeline $HOME/.haskeline
+add ghc-mod.vim ~/.vim/plugin/
+add hdevtools.vim ~/.vim/plugin/
 run chown -R ${USER}: $HOME
 
 user $USER
@@ -28,6 +30,9 @@ run stack install cabal-install
 run stack path --bin-path | path-to-setup stack
 
 run . $HOME/.profile && cabal update && cabal install \
+    ghc-mod \
+    hdevtools \
+    hlint \
     HUnit \
     parsec
 
