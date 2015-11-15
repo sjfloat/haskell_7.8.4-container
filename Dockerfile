@@ -36,7 +36,15 @@ run . $HOME/.profile && cabal update && cabal install \
     parsec
 
 add haskeline $HOME/.haskeline
-add ghc-mod.vim $HOME/.vim/plugin/
 add hdevtools.vim $HOME/.vim/plugin/
+add ghc-mod.vim $HOME/.vim/plugin/
+
+#
+# see docker bugs #6119 and #9934
+# hack, for some reason, ownership is changing too root on second .vim/plugin add
+#
+user root
+run chown -R ${USER}: $HOME
+user $USER
 
 cmd $SHELL -l
