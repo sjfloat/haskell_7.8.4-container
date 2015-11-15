@@ -44,7 +44,7 @@ add ghc-mod.vim $HOME/.vim/plugin/
 # hack, for some reason, ownership is changing too root on second .vim/plugin add
 #
 user root
-run chown -R ${USER}: $HOME
+run chown -R ${USER}: $HOME/.vim/plugin
 user $USER
 
 cmd $SHELL -l
