@@ -36,7 +36,7 @@ run . $HOME/.profile && cabal update && cabal install \
     parsec
 
 add haskeline $HOME/.haskeline
-add ghc-mod.vim ~/.vim/plugin/
-add hdevtools.vim ~/.vim/plugin/
+add ghc-mod.vim $HOME/.vim/plugin/
+add hdevtools.vim $HOME/.vim/plugin/
 
 cmd $SHELL -l
