@@ -35,6 +35,7 @@ run . $HOME/.profile && cabal update && cabal install \
     HUnit \
     parsec
 
+run git clone https://github.com/lukerandall/haskellmode-vim $HOME/.vim/bundle/haskellmode
 add haskeline $HOME/.haskeline
 add hdevtools.vim $HOME/.vim/plugin/
 add ghc-mod.vim $HOME/.vim/plugin/
