@@ -35,7 +35,7 @@ run . $HOME/.profile && cabal update && cabal install \
     HUnit \
     parsec
 
-run git clone https://github.com/lukerandall/haskellmode-vim $HOME/.vim/bundle/haskellmode
+run echo "set path = (\$path $HOME/.cabal/bin)" > $HOME/.cshrc.d/z_cabal.csh
 add haskeline $HOME/.haskeline
 add hdevtools.vim $HOME/.vim/plugin/
 add ghc-mod.vim $HOME/.vim/plugin/
@@ -48,6 +48,19 @@ user root
 run chown -R ${USER}: \
     $HOME/.vim/plugin \
     $HOME/.haskeline
+
 user $USER
+# ghcmod.vim
+# ghcmod.vim requires vimproc
+run git clone https://github.com/Shougo/vimproc.vim.git $HOME/.vim/bundle/vimproc.vim
+workdir $HOME/.vim/bundle/vimproc.vim
+run make
+
+workdir $HOME/.vim/bundle/
+run wget -O /tmp/ghcmod.vim.zip "http://www.vim.org/scripts/download_script.php?src_id=23482" \
+    && unzip /tmp/ghcmod.vim.zip
+workdir $HOME
 
 cmd $SHELL -l
+
+# vim:ft=dockerfile
