@@ -33,7 +33,9 @@ run . $HOME/.profile && cabal update && cabal install \
     hlint \
     hoogle \
     HUnit \
-    parsec
+    parsec \
+    test-framework \
+    test-framework-hunit
 
 run echo "set path = (\$path $HOME/.cabal/bin)" > $HOME/.cshrc.d/z_cabal.csh
 add haskeline $HOME/.haskeline
