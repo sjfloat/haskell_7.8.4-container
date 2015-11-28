@@ -38,6 +38,7 @@ run . $HOME/.profile && cabal update && cabal install \
     test-framework-hunit
 
 run echo "set path = (\$path $HOME/.cabal/bin)" > $HOME/.cshrc.d/z_cabal.csh
+run echo "export PATH=\$PATH:$HOME/.cabal/bin"  > $HOME/.profile.d/z_cabal.sh
 add haskeline $HOME/.haskeline
 add hdevtools.vim $HOME/.vim/plugin/
 add ghc-mod.vim $HOME/.vim/plugin/
